@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Inicio de sesión del Sistema de Gestión de Inventario.">
+  <title>Iniciar sesión | Sistema de Gestión de Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+  <script defer src="js/mock-data.js"></script>
+  <script defer src="js/app-context.js"></script>
+  <script defer src="js/login.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <main class="login-layout" id="contenido-principal">
+    <section class="brand-panel" aria-labelledby="brand-title">
+      <div class="brand-topline">
+        <a class="brand" href="login.html" aria-label="Sistema de Gestión de Inventario, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 3.5 43 14.25v19.5L24 44.5 5 33.75v-19.5L24 3.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="m5.5 14.5 18.5 10 18.5-10M24 25v19" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="m14.5 9 19 10.5" stroke="currentColor" stroke-width="1.5" opacity=".65"/>
+            </svg>
+          </span>
+          <span class="brand-name">SGI<span class="brand-dot">.</span></span>
+        </a>
+        <span class="environment-tag"><span class="environment-dot" aria-hidden="true"></span> Entorno de demostración</span>
+      </div>
+
+      <div class="brand-message">
+        <p class="eyebrow">CONTROL · ORDEN · TRAZABILIDAD</p>
+        <h1 id="brand-title">Todo tu inventario.<br><span>En un solo lugar.</span></h1>
+        <p class="brand-description">Consulta existencias, registra movimientos y mantén la información de tu inventario organizada.</p>
+
+        <div class="visual-stage" aria-hidden="true">
+          <div class="stage-glow"></div>
+          <div class="grid-floor"></div>
+          <div class="inventory-cube cube-back">
+            <span class="cube-top"></span><span class="cube-left"></span><span class="cube-right"></span>
+          </div>
+          <div class="inventory-cube cube-front">
+            <span class="cube-top"></span><span class="cube-left"></span><span class="cube-right"></span>
+          </div>
+          <div class="inventory-cube cube-small">
+            <span class="cube-top"></span><span class="cube-left"></span><span class="cube-right"></span>
+          </div>
+          <div class="floating-card floating-card-stock">
+            <span class="floating-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4.5 7.7 7.5 4.2 7.5-4.2M12 12v8.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <span><strong>Inventario</strong><small>Información centralizada</small></span>
+            <span class="status-check" aria-hidden="true">✓</span>
+          </div>
+          <div class="floating-card floating-card-chart">
+            <span class="chart-label">MOVIMIENTOS</span>
+            <span class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="chart-caption">Seguimiento continuo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-footer">
+        <span>SGI · Sistema de Gestión de Inventario</span>
+        <span class="footer-version">Prototipo UI · v1.0</span>
+      </div>
+    </section>
+
+    <section class="form-panel" aria-labelledby="login-title">
+      <div class="form-panel-top">
+        <span class="mobile-brand" aria-label="SGI">SGI<span class="brand-dot">.</span></span>
+        <span class="secure-label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3.5" y="8.5" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 8.5V6a3.5 3.5 0 0 1 7 0v2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Acceso al sistema</span>
+      </div>
+
+      <div class="form-content" id="form-content">
+        <div class="form-heading">
+          <p class="eyebrow form-eyebrow">BIENVENIDO DE NUEVO</p>
+          <h2 id="login-title">Inicia sesión</h2>
+          <p>Ingresa tus credenciales para continuar.</p>
+        </div>
+
+        <form id="login-form" class="login-form" novalidate>
+          <div class="field-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="5" width="17.6" height="14" rx="2.2" stroke="currentColor" stroke-width="1.7"/><path d="m4.5 7 7.5 6 7.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="username" placeholder="nombre@empresa.com" required aria-describedby="email-hint email-error">
+            </div>
+            <span class="field-hint" id="email-hint">Utiliza el correo asociado a tu cuenta.</span>
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <div class="field-group">
+            <div class="label-row">
+              <label for="password">Contraseña</label>
+              <button class="text-button forgot-button" id="forgot-password" type="button">¿Olvidaste tu contraseña?</button>
+            </div>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 14.5v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required aria-describedby="password-hint password-error">
+              <button class="password-toggle" id="toggle-password" type="button" aria-label="Mostrar contraseña" aria-pressed="false">
+                <svg class="eye-open" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.7" stroke="currentColor" stroke-width="1.7"/></svg>
+                <svg class="eye-closed" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 3 18 18M10.6 6.2A10.9 10.9 0 0 1 12 6c6.1 0 9.5 6 9.5 6a16 16 0 0 1-3 3.6M6.2 6.3C3.8 8 2.5 12 2.5 12s3.4 6 9.5 6c1.1 0 2.1-.2 3-.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <span class="field-hint" id="password-hint">La contraseña distingue entre mayúsculas y minúsculas.</span>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite" hidden></div>
+
+          <button class="submit-button" id="submit-button" type="submit">
+            <span class="button-label">Iniciar sesión</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+
+        <div class="demo-access">
+          <div class="demo-divider"><span>Accesos para probar el prototipo</span></div>
+          <div class="demo-actions" aria-label="Cuentas de demostración">
+            <button type="button" class="demo-chip" data-demo-user="admin">Administrador</button>
+            <button type="button" class="demo-chip" data-demo-user="supervisor">Supervisor</button>
+            <button type="button" class="demo-chip" data-demo-user="empleado">Empleado</button>
+          </div>
+          <p class="demo-note">Selecciona un perfil para completar las credenciales de prueba.</p>
+        </div>
+      </div>
+      <div class="form-panel-footer">
+        <span>¿Necesitas ayuda? <button class="text-button help-button" id="help-link" type="button">Contacta al administrador</button></span>
+        <span class="copyright">© 2026 SGI</span>
+      </div>
+    </section>
+  </main>
+
+  <div class="visually-hidden" id="announcer" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
