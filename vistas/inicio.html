@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="Panel principal del Sistema de Gestión de Inventario.">
+  <title>Inicio | Sistema de Gestión de Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css">
+  <script defer src="../js/mock-data.js"></script>
+  <script defer src="../js/app-context.js"></script>
+  <script defer src="../js/inicio.js"></script>
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="inicio.html" aria-label="SGI, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 3.5 43 14.25v19.5L24 44.5 5 33.75v-19.5L24 3.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="m5.5 14.5 18.5 10 18.5-10M24 25v19" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy"><strong>SGI<span>.</span></strong><small>Gestión de inventario</small></span>
+      </a>
+
+      <div class="sidebar-user">
+        <span class="user-avatar" id="sidebar-avatar" aria-hidden="true">U</span>
+        <span class="sidebar-user-copy"><strong id="sidebar-user-name">Usuario</strong><small id="sidebar-user-role">Rol</small></span>
+        <button class="profile-menu-toggle icon-button" id="profile-menu-toggle" type="button" aria-label="Abrir menú de cuenta" aria-expanded="false" aria-controls="profile-menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="profile-menu" id="profile-menu" hidden>
+          <p class="profile-menu-heading">Mi cuenta</p>
+          <a href="perfil.html">Ver perfil</a>
+          <a href="configuracion.html">Configuración</a>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Secciones del sistema">
+        <p class="nav-caption">MENÚ PRINCIPAL</p>
+        <a class="nav-link is-active" href="inicio.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>Inicio</span>
+        </a>
+        <a class="nav-link" href="productos.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>Productos</span>
+        </a>
+        <a class="nav-link" href="proveedores.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/><path d="M6 10h5M6 13h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Proveedores</span>
+        </a>
+        <a class="nav-link" href="registros.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Registros</span>
+          <span class="nav-chevron" aria-hidden="true">›</span>
+        </a>
+        <a class="nav-link admin-link" href="usuarios.html" data-admin-only hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM17 8h5M19.5 5.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Usuarios</span>
+        </a>
+
+        <p class="nav-caption nav-caption-secondary">PREFERENCIAS</p>
+        <a class="nav-link" href="perfil.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Perfil</span></a>
+        <a class="nav-link" href="configuracion.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" stroke="currentColor" stroke-width="1.8"/><path d="m19.4 13.5 1.1.9-1.2 2.1-1.4-.5a7.7 7.7 0 0 1-1.5.9l-.2 1.5h-2.4l-.4-1.4a7.7 7.7 0 0 1-1.8 0l-.7 1.3-2.2-.9.1-1.5a7.7 7.7 0 0 1-1.3-1.3l-1.5.1-.9-2.2 1.3-.7a7.7 7.7 0 0 1 0-1.8l-1.2-.8.9-2.2 1.5.1a7.7 7.7 0 0 1 1.3-1.3l-.1-1.5 2.2-.9.7 1.3a7.7 7.7 0 0 1 1.8 0l.8-1.2 2.2.9-.1 1.5a7.7 7.7 0 0 1 1.3 1.3l1.5-.1.9 2.2-1.3.7a7.7 7.7 0 0 1 0 1.8Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg>
+          <span>Configuración</span></a>
+        <button class="nav-link" type="button" data-coming-soon="Ayuda">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.1 1.1-1.9 1.4-1.9 3M12 17.5v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Ayuda</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-status"><span class="status-dot" aria-hidden="true"></span><span>Entorno de demostración</span></div>
+        <button class="nav-link logout-link" id="logout-button" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 17 15 12 10 7M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-brand">
+          <span class="topbar-brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19" r="1.5" fill="currentColor"/><circle cx="18" cy="19" r="1.5" fill="currentColor"/></svg>
+          </span>
+          <span>Sistema de Gestión de Inventarios</span>
+        </div>
+        <div class="topbar-actions">
+          <div class="notification-wrap">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notificaciones" aria-expanded="false" aria-controls="notification-panel">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+            <section class="notification-panel" id="notification-panel" aria-labelledby="notification-heading" hidden>
+              <div class="popover-heading"><h2 id="notification-heading">Notificaciones</h2><span>Recientes</span></div>
+              <div id="notification-list" class="notification-list"></div>
+              <a class="popover-footer-action" href="registros.html?tab=reportes&amp;report=low-stock">Consultar historial de alertas</a>
+            </section>
+          </div>
+          <time class="current-date" id="current-date"></time>
+        </div>
+      </header>
+
+      <main class="main-content" id="contenido-principal" tabindex="-1">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">PANEL DE CONTROL</p>
+            <h1>Inicio</h1>
+            <p class="page-subtitle">Resumen general de tu inventario</p>
+          </div>
+          <label class="period-control" for="period-select">
+            <span class="visually-hidden">Periodo del gráfico de movimientos</span>
+            <select id="period-select" name="period">
+              <option value="7d">Últimos 7 días</option>
+              <option value="30d" selected>Últimos 30 días</option>
+              <option value="90d">Últimos 90 días</option>
+            </select>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 10 5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </label>
+        </div>
+
+        <section class="kpi-grid" aria-label="Indicadores generales del inventario">
+          <article class="kpi-card">
+            <span class="kpi-icon kpi-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <div class="kpi-copy"><strong id="total-products">—</strong><span>Productos totales</span></div>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon kpi-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2M8.5 5l8.7 4.8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <div class="kpi-copy"><strong id="products-in-stock">—</strong><span>Productos en stock</span></div>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon kpi-red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 22 20H2L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 17.2v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <div class="kpi-copy"><strong id="low-stock-products">—</strong><span>Productos con stock bajo</span></div>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon kpi-purple" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 6.5c-.7-1.3-2.2-2-4.3-2-2.4 0-4.2 1.1-4.2 2.8 0 4.4 8.7 2 8.7 6.7 0 1.9-1.8 3.2-4.5 3.2-2.3 0-4-.8-4.8-2.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div class="kpi-copy"><strong id="inventory-value">—</strong><span>Valor total del inventario</span></div>
+          </article>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="panel movement-panel" aria-labelledby="movement-heading">
+            <div class="panel-heading movement-heading-row">
+              <div class="panel-title-wrap">
+                <span class="panel-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V11M10 19V5M16 19v-8M22 19H2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+                <h2 id="movement-heading">Movimiento de inventario</h2>
+              </div>
+              <div class="chart-legend" aria-label="Leyenda del gráfico">
+                <span><i class="legend-dot legend-entries" aria-hidden="true"></i>Entradas</span>
+                <span><i class="legend-dot legend-exits" aria-hidden="true"></i>Salidas</span>
+              </div>
+            </div>
+            <div class="chart-container" id="movement-chart-container">
+              <svg class="movement-chart" id="movement-chart" viewBox="0 0 680 310" role="img" aria-labelledby="chart-title chart-description">
+                <title id="chart-title">Movimiento de inventario</title>
+                <desc id="chart-description">Comparación de entradas y salidas de productos durante los últimos 30 días.</desc>
+              </svg>
+            </div>
+            <details class="chart-data-details">
+              <summary>Consultar datos del gráfico</summary>
+              <div class="chart-table-wrap" id="chart-data-table"></div>
+            </details>
+          </section>
+
+          <section class="panel alerts-panel" aria-labelledby="alerts-heading">
+            <div class="panel-heading">
+              <div class="panel-title-wrap">
+                <span class="panel-title-icon alert-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 22 20H2L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 17.2v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <h2 id="alerts-heading">Alertas</h2>
+              </div>
+              <a class="text-link" href="registros.html?tab=reportes&amp;report=low-stock">Ver todas <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="alerts-list" id="alerts-list"></div>
+          </section>
+        </div>
+
+        <section class="panel top-products-panel" aria-labelledby="top-products-heading">
+          <div class="panel-heading">
+            <div class="panel-title-wrap">
+              <span class="panel-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+              <h2 id="top-products-heading">Productos con mayor movimiento</h2>
+            </div>
+            <a class="text-link" href="registros.html?tab=reportes&amp;report=top-moving">Ver detalles <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <caption class="visually-hidden">Productos con mayor movimiento en el periodo de referencia</caption>
+              <thead><tr><th scope="col" class="rank-column">#</th><th scope="col">Producto</th><th scope="col">Marca</th><th scope="col">Unidades movidas</th><th scope="col">Participación</th></tr></thead>
+              <tbody id="top-products-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <p class="demo-disclaimer">Datos ficticios de demostración. Las cifras no representan un inventario real.</p>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

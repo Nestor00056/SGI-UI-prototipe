@@ -1,0 +1,711 @@
+/* SGI - tema compartido claro/oscuro.
+   Se carga después de las hojas específicas de cada vista para centralizar
+   colores, superficies, bordes y estados de interacción. */
+
+:root {
+  --theme-bg: #f5f7fb;
+  --theme-surface: #ffffff;
+  --theme-surface-soft: #f7f9fc;
+  --theme-ink: #202638;
+  --theme-muted: #697386;
+  --theme-line: #e5e9f0;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-bg: #111722;
+  --theme-surface: #192332;
+  --theme-surface-soft: #202b3b;
+  --theme-ink: #edf2f8;
+  --theme-muted: #aab6c7;
+  --theme-line: #354256;
+
+  /* Tokens legacy utilizados por las hojas de cada módulo. */
+  --ink: #edf2f8;
+  --muted: #aab6c7;
+  --line: #354256;
+  --surface: #192332;
+  --surface-soft: #202b3b;
+  --blue-pale: #1e3657;
+  --shadow-card: 0 8px 28px rgba(0, 0, 0, .20);
+}
+
+html[data-theme="dark"] body {
+  color: var(--theme-ink);
+  background: var(--theme-bg);
+}
+
+/* Estructura común */
+html[data-theme="dark"] .sidebar,
+html[data-theme="dark"] .sidebar-bottom,
+html[data-theme="dark"] .profile-menu,
+html[data-theme="dark"] .notification-panel,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .kpi-card,
+html[data-theme="dark"] .summary-item,
+html[data-theme="dark"] .products-filter-panel,
+html[data-theme="dark"] .products-table-panel,
+html[data-theme="dark"] .providers-filter-panel,
+html[data-theme="dark"] .providers-table-panel,
+html[data-theme="dark"] .users-filter-panel,
+html[data-theme="dark"] .users-table-panel,
+html[data-theme="dark"] .records-filter-panel,
+html[data-theme="dark"] .records-table-panel,
+html[data-theme="dark"] .report-selector-panel,
+html[data-theme="dark"] .report-output-panel,
+html[data-theme="dark"] .record-summary-card,
+html[data-theme="dark"] .profile-card,
+html[data-theme="dark"] .config-card,
+html[data-theme="dark"] .detail-item,
+html[data-theme="dark"] .audit-change-card,
+html[data-theme="dark"] .report-highlight,
+html[data-theme="dark"] .report-kpi {
+  color: var(--theme-ink);
+  background-color: var(--theme-surface);
+  border-color: var(--theme-line);
+}
+
+html[data-theme="dark"] .topbar {
+  color: var(--theme-ink);
+  background: rgba(21, 30, 44, .96);
+  border-color: var(--theme-line);
+}
+
+html[data-theme="dark"] .sidebar-user,
+html[data-theme="dark"] .notification-button,
+html[data-theme="dark"] .theme-option,
+html[data-theme="dark"] .report-kpi,
+html[data-theme="dark"] .dialog-meta-item,
+html[data-theme="dark"] .dialog-meta,
+html[data-theme="dark"] .detail-grid {
+  background-color: var(--theme-surface-soft);
+  border-color: var(--theme-line);
+}
+
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .topbar-brand,
+html[data-theme="dark"] .topbar-brand-icon,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .page-heading,
+html[data-theme="dark"] .users-main,
+html[data-theme="dark"] .page-heading h1,
+html[data-theme="dark"] .panel-heading h2,
+html[data-theme="dark"] .panel-title-icon,
+html[data-theme="dark"] .kpi-copy strong,
+html[data-theme="dark"] .summary-item strong,
+html[data-theme="dark"] .table-panel-heading h2,
+html[data-theme="dark"] .users-table-heading h2,
+html[data-theme="dark"] .records-intro h2,
+html[data-theme="dark"] .records-table-panel .table-panel-heading h3,
+html[data-theme="dark"] .report-output-heading h3,
+html[data-theme="dark"] .report-subheading,
+html[data-theme="dark"] .dialog-heading h2,
+html[data-theme="dark"] .records-dialog .dialog-heading h2,
+html[data-theme="dark"] .user-dialog .dialog-heading h2,
+html[data-theme="dark"] .card-heading h2,
+html[data-theme="dark"] .config-section-heading h2,
+html[data-theme="dark"] .audit-change-card h3 {
+  color: var(--theme-ink);
+}
+
+html[data-theme="dark"] .brand-copy small,
+html[data-theme="dark"] .sidebar-user-copy small,
+html[data-theme="dark"] .nav-caption,
+html[data-theme="dark"] .sidebar-status,
+html[data-theme="dark"] .current-date,
+html[data-theme="dark"] .page-subtitle,
+html[data-theme="dark"] .kpi-copy span,
+html[data-theme="dark"] .summary-item small,
+html[data-theme="dark"] .table-panel-heading p,
+html[data-theme="dark"] .users-table-heading p,
+html[data-theme="dark"] .records-intro p,
+html[data-theme="dark"] .records-table-panel .table-panel-heading p,
+html[data-theme="dark"] .report-output-heading > div > p:last-child,
+html[data-theme="dark"] .table-footer p,
+html[data-theme="dark"] .users-table-footer > p,
+html[data-theme="dark"] .demo-disclaimer,
+html[data-theme="dark"] .popover-heading span,
+html[data-theme="dark"] .notification-copy small,
+html[data-theme="dark"] .notification-copy strong,
+html[data-theme="dark"] .dialog-heading p:last-child,
+html[data-theme="dark"] .dialog-meta-item small,
+html[data-theme="dark"] .detail-item span,
+html[data-theme="dark"] .profile-note,
+html[data-theme="dark"] .config-section-heading p:last-child,
+html[data-theme="dark"] .theme-option-copy small,
+html[data-theme="dark"] .field-note,
+html[data-theme="dark"] .user-form-note,
+html[data-theme="dark"] .provider-muted,
+html[data-theme="dark"] .product-cell small,
+html[data-theme="dark"] .provider-name-cell small,
+html[data-theme="dark"] .movement-product-cell small,
+html[data-theme="dark"] .audit-product-cell small,
+html[data-theme="dark"] .contrast-product small,
+html[data-theme="dark"] .report-highlight-copy small,
+html[data-theme="dark"] .report-kpi small,
+html[data-theme="dark"] .table-footnote {
+  color: var(--theme-muted);
+}
+
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .card-kicker {
+  color: #82b2ff;
+}
+
+/* Navegación, menús y botones de cabecera */
+html[data-theme="dark"] .nav-link {
+  color: #b8c4d4;
+  background: transparent;
+}
+html[data-theme="dark"] .nav-link:hover {
+  color: #a7c9ff;
+  background: #253349;
+}
+html[data-theme="dark"] .nav-link.is-active {
+  color: #a7c9ff;
+  background: #203754;
+  box-shadow: inset 3px 0 #5794f5;
+}
+html[data-theme="dark"] .nav-link.is-active svg,
+html[data-theme="dark"] .icon-button,
+html[data-theme="dark"] .topbar-brand-icon {
+  color: #dce7f6;
+}
+html[data-theme="dark"] .icon-button:hover {
+  color: #a7c9ff;
+  background: #253349;
+}
+html[data-theme="dark"] .profile-menu button {
+  color: #dce5f1;
+  background: transparent;
+}
+html[data-theme="dark"] .profile-menu button:hover,
+html[data-theme="dark"] .popover-footer-action:hover {
+  background: #2a3a50;
+}
+html[data-theme="dark"] .profile-menu-heading,
+html[data-theme="dark"] .profile-menu,
+html[data-theme="dark"] .notification-panel,
+html[data-theme="dark"] .notification-button,
+html[data-theme="dark"] .notification-item,
+html[data-theme="dark"] .popover-heading,
+html[data-theme="dark"] .sidebar-bottom,
+html[data-theme="dark"] .nav-caption-secondary {
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .popover-heading h2,
+html[data-theme="dark"] .sidebar-user-copy strong {
+  color: var(--theme-ink);
+}
+html[data-theme="dark"] .popover-footer-action {
+  color: #9fc3ff;
+  background: #223149;
+}
+
+/* Superficies internas, tablas y filas */
+html[data-theme="dark"] .data-table thead,
+html[data-theme="dark"] .products-table thead,
+html[data-theme="dark"] .providers-table thead,
+html[data-theme="dark"] .users-table thead,
+html[data-theme="dark"] .records-table thead,
+html[data-theme="dark"] .report-table th,
+html[data-theme="dark"] .chart-table th,
+html[data-theme="dark"] .dialog-movement-list th {
+  background: #253247;
+}
+html[data-theme="dark"] .data-table th,
+html[data-theme="dark"] .products-table th,
+html[data-theme="dark"] .providers-table th,
+html[data-theme="dark"] .users-table th,
+html[data-theme="dark"] .records-table th,
+html[data-theme="dark"] .report-table th,
+html[data-theme="dark"] .chart-table th,
+html[data-theme="dark"] .dialog-movement-list th {
+  color: #c6d2e2;
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .data-table td,
+html[data-theme="dark"] .products-table td,
+html[data-theme="dark"] .providers-table td,
+html[data-theme="dark"] .users-table td,
+html[data-theme="dark"] .records-table td,
+html[data-theme="dark"] .report-table td,
+html[data-theme="dark"] .chart-table td,
+html[data-theme="dark"] .dialog-movement-list td {
+  color: #d2dbe7;
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .data-table tbody tr:hover,
+html[data-theme="dark"] .products-table tbody tr:hover,
+html[data-theme="dark"] .providers-table tbody tr:hover,
+html[data-theme="dark"] .users-table tbody tr:hover,
+html[data-theme="dark"] .records-table tbody tr:hover {
+  background: #222f41;
+}
+html[data-theme="dark"] .brand-cell,
+html[data-theme="dark"] .code-cell span,
+html[data-theme="dark"] .date-cell,
+html[data-theme="dark"] .quantity-cell,
+html[data-theme="dark"] .user-cell,
+html[data-theme="dark"] .description-cell,
+html[data-theme="dark"] .provider-contact-cell,
+html[data-theme="dark"] .provider-row-code,
+html[data-theme="dark"] .product-cell strong,
+html[data-theme="dark"] .provider-name-cell strong,
+html[data-theme="dark"] .movement-product-cell strong,
+html[data-theme="dark"] .audit-product-cell strong,
+html[data-theme="dark"] .contrast-product strong,
+html[data-theme="dark"] .detail-item strong,
+html[data-theme="dark"] .audit-change-row span:last-child,
+html[data-theme="dark"] .report-highlight-copy strong,
+html[data-theme="dark"] .report-highlight-value,
+html[data-theme="dark"] .report-kpi strong {
+  color: #e1e9f3 !important;
+}
+html[data-theme="dark"] .table-count,
+html[data-theme="dark"] .section-counter {
+  color: #a9c9f8;
+  background: #233751;
+}
+
+/* Formularios y campos */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .period-control select,
+html[data-theme="dark"] .search-field input,
+html[data-theme="dark"] .search-field select,
+html[data-theme="dark"] .select-field select,
+html[data-theme="dark"] .filter-field input,
+html[data-theme="dark"] .filter-field select,
+html[data-theme="dark"] .form-field input,
+html[data-theme="dark"] .form-field select,
+html[data-theme="dark"] .form-field textarea,
+html[data-theme="dark"] .user-search-wrap input,
+html[data-theme="dark"] .users-filter-grid select,
+html[data-theme="dark"] .profile-form-grid input {
+  color: #edf2f8;
+  background-color: #202b3b;
+  border-color: #43516a;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder,
+html[data-theme="dark"] .search-field input::placeholder,
+html[data-theme="dark"] .user-search-wrap input::placeholder {
+  color: #8998ad;
+  opacity: 1;
+}
+html[data-theme="dark"] select option {
+  color: #edf2f8;
+  background: #202b3b;
+}
+html[data-theme="dark"] .filter-field label,
+html[data-theme="dark"] .form-field label,
+html[data-theme="dark"] .profile-form-grid label,
+html[data-theme="dark"] .report-subheading {
+  color: #c6d2e2;
+}
+html[data-theme="dark"] .form-field input:disabled,
+html[data-theme="dark"] .form-field select:disabled,
+html[data-theme="dark"] .form-field textarea:disabled,
+html[data-theme="dark"] .profile-form-grid input[readonly] {
+  color: #a1aec0;
+  background: #273448;
+}
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] select:focus,
+html[data-theme="dark"] textarea:focus {
+  border-color: #6ca5ff;
+  box-shadow: 0 0 0 3px rgba(91, 151, 244, .17);
+}
+
+/* Botones principales, secundarios, filtros, tablas y paginación */
+html[data-theme="dark"] .primary-button,
+html[data-theme="dark"] .filter-button {
+  color: #ffffff;
+  background: #3478e5;
+  border-color: #3478e5;
+}
+html[data-theme="dark"] .primary-button:hover:not(:disabled),
+html[data-theme="dark"] .filter-button:hover:not(:disabled) {
+  color: #ffffff;
+  background: #2868cc;
+  border-color: #2868cc;
+}
+html[data-theme="dark"] .secondary-button,
+html[data-theme="dark"] .filter-actions .secondary-button,
+html[data-theme="dark"] .dialog-close,
+html[data-theme="dark"] .page-button {
+  color: #d6e0ed;
+  background: #253247;
+  border-color: #43516a;
+}
+html[data-theme="dark"] .secondary-button:hover:not(:disabled),
+html[data-theme="dark"] .dialog-close:hover,
+html[data-theme="dark"] .page-button:hover:not(:disabled) {
+  color: #ffffff;
+  background: #30435e;
+  border-color: #6484b4;
+}
+html[data-theme="dark"] .clear-filters-button,
+html[data-theme="dark"] .users-filter-actions .secondary-button {
+  color: #b7c5d8;
+  background: transparent;
+  border-color: transparent;
+}
+html[data-theme="dark"] .clear-filters-button:hover,
+html[data-theme="dark"] .users-filter-actions .secondary-button:hover:not(:disabled) {
+  color: #a8caff;
+  background: #25364d;
+}
+html[data-theme="dark"] .page-button.is-current {
+  color: #ffffff;
+  background: #3478e5;
+  border-color: #3478e5;
+}
+html[data-theme="dark"] .page-button:disabled {
+  color: #718096;
+  background: #202a39;
+  border-color: #354256;
+}
+html[data-theme="dark"] .page-ellipsis,
+html[data-theme="dark"] .pagination-ellipsis {
+  color: #aab6c7;
+}
+html[data-theme="dark"] .row-action,
+html[data-theme="dark"] .user-action-button {
+  color: #b8c7da;
+  background: transparent;
+  border-color: transparent;
+}
+html[data-theme="dark"] .row-action:hover,
+html[data-theme="dark"] .user-action-button:hover {
+  color: #a8caff;
+  background: #25364d;
+  border-color: #405a7d;
+}
+html[data-theme="dark"] .row-action-danger:hover,
+html[data-theme="dark"] .user-action-button.is-danger:hover {
+  color: #ffaaa8;
+  background: #442b33;
+  border-color: #75434a;
+}
+html[data-theme="dark"] .user-action-button.is-success:hover {
+  color: #9ee4be;
+  background: #1f3d35;
+  border-color: #376d58;
+}
+html[data-theme="dark"] .text-link,
+html[data-theme="dark"] .provider-contact-cell a,
+html[data-theme="dark"] .row-detail-button {
+  color: #91baff;
+}
+html[data-theme="dark"] .text-link:hover,
+html[data-theme="dark"] .provider-contact-cell a:hover {
+  color: #c0d7ff;
+}
+html[data-theme="dark"] .row-detail-button {
+  background: #253a57;
+  border-color: #3b5d8e;
+}
+html[data-theme="dark"] .row-detail-button:hover {
+  background: #2d4668;
+  border-color: #6484b4;
+}
+
+/* Pestañas de Registros */
+html[data-theme="dark"] .records-tabs {
+  background: #202b3b;
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .records-tab {
+  color: #b8c5d6;
+  background: transparent;
+  border-color: transparent;
+}
+html[data-theme="dark"] .records-tab:hover {
+  color: #a8caff;
+  background: #2a3a50;
+}
+html[data-theme="dark"] .records-tab.is-active {
+  color: #a8caff;
+  background: #263b58;
+  border-color: #405d85;
+}
+
+/* Etiquetas de estado y clasificación: conservar significado cromático */
+html[data-theme="dark"] .status-active,
+html[data-theme="dark"] .user-status-pill.active,
+html[data-theme="dark"] .report-ready-pill,
+html[data-theme="dark"] .movement-type-pill.entry,
+html[data-theme="dark"] .audit-action-pill.create {
+  color: #91e0b4;
+  background: #1d3b31;
+}
+html[data-theme="dark"] .status-inactive,
+html[data-theme="dark"] .user-status-pill.inactive {
+  color: #bdc7d4;
+  background: #303b4b;
+}
+html[data-theme="dark"] .user-role-pill,
+html[data-theme="dark"] .category-pill {
+  color: #c4d2e5;
+  background: #2b394d;
+}
+html[data-theme="dark"] .user-role-pill.admin {
+  color: #d2baff;
+  background: #382f51;
+}
+html[data-theme="dark"] .user-role-pill.supervisor {
+  color: #a7ceff;
+  background: #233c59;
+}
+html[data-theme="dark"] .movement-type-pill.exit,
+html[data-theme="dark"] .audit-action-pill.deactivate {
+  color: #ffaaa1;
+  background: #472d32;
+}
+html[data-theme="dark"] .movement-type-pill.adjustment,
+html[data-theme="dark"] .audit-action-pill.update {
+  color: #d0baff;
+  background: #382f51;
+}
+html[data-theme="dark"] .stock-change-pill,
+html[data-theme="dark"] .report-rank {
+  color: #b6d1fa;
+  background: #263b57;
+}
+
+/* Auditoría, contraste y resultados */
+html[data-theme="dark"] .audit-note,
+html[data-theme="dark"] .contrast-explainer {
+  color: #c4d0e1;
+  background: #202d41;
+  border-color: #3c5272;
+}
+html[data-theme="dark"] .contrast-explainer strong,
+html[data-theme="dark"] .contrast-product strong {
+  color: #e5edf7;
+}
+html[data-theme="dark"] .contrast-explainer-icon {
+  color: #d1bdff;
+  background: #393251;
+}
+html[data-theme="dark"] .audit-change-card.before {
+  background: #332a32;
+}
+html[data-theme="dark"] .audit-change-card.after {
+  background: #21372f;
+}
+html[data-theme="dark"] .audit-change-row span:first-child,
+html[data-theme="dark"] .audit-change-card h3 {
+  color: #b9c5d5;
+}
+html[data-theme="dark"] .dialog-meta-item {
+  background: #243247;
+}
+html[data-theme="dark"] .report-highlight {
+  background: #202b3b;
+}
+html[data-theme="dark"] .report-kpi {
+  background: #202b3b;
+}
+html[data-theme="dark"] .audit-note > span {
+  color: #ffffff;
+}
+html[data-theme="dark"] .positive-value {
+  color: #8fe0b0 !important;
+}
+html[data-theme="dark"] .negative-value {
+  color: #ffaaa1 !important;
+}
+html[data-theme="dark"] .neutral-value {
+  color: #c0cad8 !important;
+}
+
+/* Perfil y Configuración: superficies que antes quedaban blancas */
+html[data-theme="dark"] .profile-card,
+html[data-theme="dark"] .config-card {
+  color: var(--theme-ink);
+  background: #192332;
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .card-heading,
+html[data-theme="dark"] .config-section-heading {
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .profile-form-grid label,
+html[data-theme="dark"] .theme-option-copy strong {
+  color: #e4ebf5;
+}
+html[data-theme="dark"] .profile-form-grid input {
+  color: #edf2f8;
+  background: #202b3b;
+  border-color: #43516a;
+}
+html[data-theme="dark"] .profile-form-grid input[readonly] {
+  color: #b5c1d1;
+  background: #273448;
+}
+html[data-theme="dark"] .profile-note {
+  color: #b8c5d6;
+  background: #202d40;
+}
+html[data-theme="dark"] .theme-option {
+  color: #e4ebf5;
+  background: #202b3b;
+  border-color: #43516a;
+}
+html[data-theme="dark"] .theme-option:hover {
+  background: #27374d;
+  border-color: #6687b6;
+}
+html[data-theme="dark"] .theme-option:has(input:checked) {
+  color: #edf4ff;
+  background: #213b5a;
+  border-color: #5794f5;
+  box-shadow: 0 0 0 3px rgba(87, 148, 245, .15);
+}
+html[data-theme="dark"] .theme-option-copy strong {
+  color: #f1f5fb;
+}
+html[data-theme="dark"] .theme-option-copy small {
+  color: #b3c0d2;
+}
+html[data-theme="dark"] .theme-option input {
+  accent-color: #5794f5;
+}
+html[data-theme="dark"] .form-feedback,
+html[data-theme="dark"] .profile-form-grid .form-field,
+html[data-theme="dark"] .config-actions {
+  color: #91dfb2;
+}
+
+/* Diálogos y elementos emergentes */
+html[data-theme="dark"] dialog,
+html[data-theme="dark"] .product-dialog,
+html[data-theme="dark"] .provider-dialog,
+html[data-theme="dark"] .records-dialog,
+html[data-theme="dark"] .user-dialog {
+  color: var(--theme-ink);
+  background: #192332;
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] dialog::backdrop {
+  background: rgba(3, 8, 16, .68);
+}
+html[data-theme="dark"] .dialog-body,
+html[data-theme="dark"] .dialog-meta,
+html[data-theme="dark"] .detail-grid {
+  color: #dce5f1;
+}
+html[data-theme="dark"] .detail-item span,
+html[data-theme="dark"] .dialog-meta-item small {
+  color: #aab6c7;
+}
+html[data-theme="dark"] .detail-item strong,
+html[data-theme="dark"] .dialog-meta-item strong {
+  color: #e5edf7;
+}
+html[data-theme="dark"] .user-form-note {
+  color: #bac7d8;
+  background: #202d40;
+}
+html[data-theme="dark"] .dialog-form-feedback {
+  color: #ffaaa1;
+  background: #442b32;
+}
+html[data-theme="dark"] .field-error,
+html[data-theme="dark"] .field-message {
+  color: #ffaaa1;
+}
+
+/* Notificaciones, alertas y mensajes */
+html[data-theme="dark"] .alert-row {
+  border-color: var(--theme-line);
+}
+html[data-theme="dark"] .alert-copy strong {
+  color: #e0e8f2;
+}
+html[data-theme="dark"] .alert-copy small,
+html[data-theme="dark"] .empty-state,
+html[data-theme="dark"] .users-empty-state {
+  color: #aab6c7 !important;
+}
+html[data-theme="dark"] .alert-value {
+  color: #ffaaa1;
+}
+html[data-theme="dark"] .alert-row.info .alert-value {
+  color: #9bc4ff;
+}
+html[data-theme="dark"] .alert-row.success .alert-value {
+  color: #91dfb2;
+}
+html[data-theme="dark"] .empty-state-icon {
+  color: #a6c8ff;
+  background: #243852;
+}
+html[data-theme="dark"] .empty-state strong {
+  color: #e3ebf5;
+}
+html[data-theme="dark"] .toast {
+  color: #e7eef8;
+  background: #202d40;
+  border-color: #405572;
+}
+html[data-theme="dark"] .demo-disclaimer {
+  color: #8998ad;
+}
+
+/* Gráficos: el lienzo y las etiquetas también deben mantener contraste. */
+html[data-theme="dark"] .chart-legend,
+html[data-theme="dark"] .chart-data-details,
+html[data-theme="dark"] .chart-table td,
+html[data-theme="dark"] .chart-table th,
+html[data-theme="dark"] .movement-chart .chart-axis-label,
+html[data-theme="dark"] .movement-chart .chart-x-label {
+  color: #c5d0df;
+}
+html[data-theme="dark"] .movement-chart .chart-grid-line {
+  stroke: #34445b;
+}
+html[data-theme="dark"] .share-track {
+  background: #354256;
+}
+
+/* Foco y estados de teclado accesibles en ambos temas. */
+html[data-theme="dark"] button:focus-visible,
+html[data-theme="dark"] a:focus-visible,
+html[data-theme="dark"] input:focus-visible,
+html[data-theme="dark"] select:focus-visible,
+html[data-theme="dark"] textarea:focus-visible,
+html[data-theme="dark"] summary:focus-visible {
+  outline: 3px solid #82b2ff;
+  outline-offset: 3px;
+}
+
+
+/* Menú de cuenta compartido: enlaces sin estilos nativos del navegador. */
+html[data-theme="dark"] .profile-menu a,
+html[data-theme="dark"] .profile-menu a:link,
+html[data-theme="dark"] .profile-menu a:visited,
+html[data-theme="dark"] .profile-menu button {
+  color: #dce5f1;
+  background: transparent;
+  text-decoration: none;
+}
+html[data-theme="dark"] .profile-menu a:hover,
+html[data-theme="dark"] .profile-menu a:focus-visible,
+html[data-theme="dark"] .profile-menu a[aria-current="page"],
+html[data-theme="dark"] .profile-menu button:hover {
+  color: #a7c9ff;
+  background: #2a3a50;
+}
+html[data-theme="dark"] .profile-menu-heading {
+  color: #9eacbf;
+}
+html[data-theme="dark"] .profile-menu {
+  color: var(--theme-ink);
+  background: var(--theme-surface);
+  border-color: var(--theme-line);
+}

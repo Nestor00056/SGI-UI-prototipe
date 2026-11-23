@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="Movimientos, auditoría, contraste de existencias y reportes del Sistema de Gestión de Inventario.">
+  <title>Registros | Sistema de Gestión de Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css">
+  <link rel="stylesheet" href="../css/registros.css">
+  <script defer src="../js/mock-data.js"></script>
+  <script defer src="../js/app-context.js"></script>
+  <script defer src="../js/registros.js"></script>
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="inicio.html" aria-label="SGI, ir al inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 3.5 43 14.25v19.5L24 44.5 5 33.75v-19.5L24 3.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m5.5 14.5 18.5 10 18.5-10M24 25v19" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>SGI<span>.</span></strong><small>Gestión de inventario</small></span>
+      </a>
+      <div class="sidebar-user">
+        <span class="user-avatar" id="sidebar-avatar" aria-hidden="true">U</span>
+        <span class="sidebar-user-copy"><strong id="sidebar-user-name">Usuario</strong><small id="sidebar-user-role">Rol</small></span>
+        <button class="profile-menu-toggle icon-button" id="profile-menu-toggle" type="button" aria-label="Abrir menú de cuenta" aria-expanded="false" aria-controls="profile-menu"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="profile-menu" id="profile-menu" hidden><p class="profile-menu-heading">Mi cuenta</p><a href="perfil.html">Ver perfil</a><a href="configuracion.html">Configuración</a></div>
+      </div>
+      <nav class="sidebar-nav" aria-label="Secciones del sistema">
+        <p class="nav-caption">MENÚ PRINCIPAL</p>
+        <a class="nav-link" href="inicio.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Inicio</span></a>
+        <a class="nav-link" href="productos.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Productos</span></a>
+        <a class="nav-link" href="proveedores.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/><path d="M6 10h5M6 13h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Proveedores</span></a>
+        <a class="nav-link is-active" href="registros.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Registros</span><span class="nav-chevron" aria-hidden="true">›</span></a>
+        <a class="nav-link admin-link" href="usuarios.html" data-admin-only hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM17 8h5M19.5 5.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Usuarios</span>
+        </a>
+        <p class="nav-caption nav-caption-secondary">PREFERENCIAS</p>
+        <a class="nav-link" href="perfil.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Perfil</span></a>
+        <a class="nav-link" href="configuracion.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" stroke="currentColor" stroke-width="1.8"/><path d="m19.4 13.5 1.1.9-1.2 2.1-1.4-.5a7.7 7.7 0 0 1-1.5.9l-.2 1.5h-2.4l-.4-1.4a7.7 7.7 0 0 1-1.8 0l-.7 1.3-2.2-.9.1-1.5a7.7 7.7 0 0 1-1.3-1.3l-1.5.1-.9-2.2 1.3-.7a7.7 7.7 0 0 1 0-1.8l-1.2-.8.9-2.2 1.5.1a7.7 7.7 0 0 1 1.3-1.3l-.1-1.5 2.2-.9.7 1.3a7.7 7.7 0 0 1 1.8 0l.8-1.2 2.2.9-.1 1.5a7.7 7.7 0 0 1 1.3 1.3l1.5-.1.9 2.2-1.3.7a7.7 7.7 0 0 1 0 1.8Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg><span>Configuración</span></a>
+        <button class="nav-link" type="button" data-coming-soon="Ayuda"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.1 1.1-1.9 1.4-1.9 3M12 17.5v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Ayuda</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-status"><span class="status-dot" aria-hidden="true"></span><span>Entorno de demostración</span></div><button class="nav-link logout-link" id="logout-button" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 17 15 12 10 7M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cerrar sesión</span></button></div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-brand"><span class="topbar-brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19" r="1.5" fill="currentColor"/><circle cx="18" cy="19" r="1.5" fill="currentColor"/></svg></span><span>Sistema de Gestión de Inventarios</span></div>
+        <div class="topbar-actions"><div class="notification-wrap"><button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notificaciones" aria-expanded="false" aria-controls="notification-panel"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="notification-dot" aria-hidden="true"></span></button><section class="notification-panel" id="notification-panel" aria-labelledby="notification-heading" hidden><div class="popover-heading"><h2 id="notification-heading">Notificaciones</h2><span>Inventario</span></div><div class="notification-list" id="notification-list"></div><a class="popover-footer-action" href="registros.html?tab=reportes&amp;report=low-stock">Consultar historial de alertas</a></section></div><time class="current-date" id="current-date"></time></div>
+      </header>
+
+      <main class="main-content records-content" id="contenido-principal" tabindex="-1">
+        <div class="page-heading records-page-heading"><div><p class="eyebrow">CONTROL Y TRAZABILIDAD</p><h1>Registros</h1><p class="page-subtitle">Consulta los movimientos, revisa las acciones y analiza las variaciones del inventario.</p></div></div>
+
+        <div class="records-tabs" role="tablist" aria-label="Secciones de registros">
+          <button class="records-tab is-active" id="tab-movimientos" type="button" role="tab" aria-selected="true" aria-controls="panel-movimientos" data-tab="movimientos">Movimientos de inventario</button>
+          <button class="records-tab" id="tab-auditoria" type="button" role="tab" aria-selected="false" aria-controls="panel-auditoria" data-tab="auditoria" tabindex="-1">Historial de auditoría</button>
+          <button class="records-tab" id="tab-contraste" type="button" role="tab" aria-selected="false" aria-controls="panel-contraste" data-tab="contraste" tabindex="-1">Contraste de inventario</button>
+          <button class="records-tab" id="tab-reportes" type="button" role="tab" aria-selected="false" aria-controls="panel-reportes" data-tab="reportes" tabindex="-1">Reportes</button>
+        </div>
+
+        <section class="records-panel" id="panel-movimientos" role="tabpanel" aria-labelledby="tab-movimientos">
+          <div class="records-intro"><div><h2>Movimientos de inventario</h2><p>Consulta las entradas, salidas y ajustes registrados para cada producto.</p></div><span class="section-counter" id="movement-total">0 movimientos</span></div>
+          <section class="records-filter-panel" aria-label="Filtros de movimientos"><form class="records-filter-grid" id="movement-filter-form">
+            <div class="filter-field"><label for="movement-from">Fecha desde</label><input id="movement-from" name="from" type="date"></div>
+            <div class="filter-field"><label for="movement-to">Fecha hasta</label><input id="movement-to" name="to" type="date"></div>
+            <div class="filter-field"><label for="movement-type-filter">Tipo de movimiento</label><select id="movement-type-filter" name="type"><option value="all">Todos</option><option value="ENTRADA">Entrada</option><option value="SALIDA">Salida</option><option value="AJUSTE">Ajuste</option></select></div>
+            <div class="filter-field filter-field-product"><label for="movement-product-filter">Producto</label><select id="movement-product-filter" name="product"><option value="all">Todos los productos</option></select></div>
+            <div class="filter-actions"><button class="primary-button" type="submit">Filtrar</button><button class="secondary-button" type="reset" id="movement-clear">Limpiar</button></div>
+          </form><p class="filter-error" id="movement-filter-error" role="alert" hidden></p></section>
+          <section class="records-summary" aria-label="Resumen de movimientos"><article class="record-summary-card"><span class="record-summary-icon blue">↗</span><span><strong id="movement-entry-total">0</strong><small>Unidades de entrada</small></span></article><article class="record-summary-card"><span class="record-summary-icon red">↘</span><span><strong id="movement-exit-total">0</strong><small>Unidades de salida</small></span></article><article class="record-summary-card"><span class="record-summary-icon violet">±</span><span><strong id="movement-adjustment-total">0</strong><small>Ajustes registrados</small></span></article><article class="record-summary-card"><span class="record-summary-icon gray">▤</span><span><strong id="movement-event-total">0</strong><small>Operaciones encontradas</small></span></article></section>
+          <section class="records-table-panel" aria-labelledby="movement-table-heading"><div class="table-panel-heading"><div><h3 id="movement-table-heading">Historial de movimientos</h3><p>Los registros se muestran del más reciente al más antiguo.</p></div><span class="table-count" id="movement-count">0 registros</span></div><div class="table-scroll"><table class="data-table records-table movement-table"><caption class="visually-hidden">Movimientos de inventario con fecha, tipo, producto, cantidad, elemento modificado, usuario y descripción.</caption><thead><tr><th scope="col">Fecha y hora</th><th scope="col">Tipo de movimiento</th><th scope="col">Producto</th><th scope="col">Cantidad</th><th scope="col">Modificado</th><th scope="col">Usuario</th><th scope="col">Descripción</th></tr></thead><tbody id="movement-table-body"></tbody></table></div><div class="table-footer"><p id="movement-pagination-summary" aria-live="polite">Mostrando 0 movimientos</p><nav class="pagination" id="movement-pagination" aria-label="Paginación de movimientos"></nav></div></section>
+        </section>
+
+        <section class="records-panel" id="panel-auditoria" role="tabpanel" aria-labelledby="tab-auditoria" hidden>
+          <div class="records-intro"><div><h2>Historial de auditoría</h2><p>Revisa las acciones administrativas realizadas sobre los productos y sus modificaciones.</p></div><span class="section-counter" id="audit-total">0 acciones</span></div>
+          <section class="records-filter-panel" aria-label="Filtros de auditoría"><form class="records-filter-grid audit-filter-grid" id="audit-filter-form">
+            <div class="filter-field"><label for="audit-from">Fecha desde</label><input id="audit-from" name="from" type="date"></div>
+            <div class="filter-field"><label for="audit-to">Fecha hasta</label><input id="audit-to" name="to" type="date"></div>
+            <div class="filter-field"><label for="audit-action-filter">Tipo de acción</label><select id="audit-action-filter" name="action"><option value="all">Todas las acciones</option><option value="CREAR">Crear</option><option value="MODIFICAR">Modificar</option><option value="DESACTIVAR">Desactivar</option></select></div>
+            <div class="filter-field filter-field-product"><label for="audit-product-filter">Producto afectado</label><select id="audit-product-filter" name="product"><option value="all">Todos los productos</option></select></div>
+            <div class="filter-actions"><button class="primary-button" type="submit">Filtrar</button><button class="secondary-button" type="reset" id="audit-clear">Limpiar</button></div>
+          </form><p class="filter-error" id="audit-filter-error" role="alert" hidden></p></section>
+          <div class="audit-note"><span aria-hidden="true">ⓘ</span><p>La auditoría registra acciones como crear, modificar o desactivar productos. Las entradas, salidas y ajustes de existencias se consultan en la pestaña de movimientos.</p></div>
+          <section class="records-table-panel" aria-labelledby="audit-table-heading"><div class="table-panel-heading"><div><h3 id="audit-table-heading">Acciones registradas</h3><p>Selecciona «Ver cambios» para comparar los valores anteriores y nuevos.</p></div><span class="table-count" id="audit-count">0 acciones</span></div><div class="table-scroll"><table class="data-table records-table audit-table"><caption class="visually-hidden">Historial de auditoría de acciones realizadas sobre productos.</caption><thead><tr><th scope="col">Fecha y hora</th><th scope="col">Acción</th><th scope="col">Producto afectado</th><th scope="col">Usuario responsable</th><th scope="col">Descripción</th><th scope="col">Detalle</th></tr></thead><tbody id="audit-table-body"></tbody></table></div><div class="table-footer"><p id="audit-pagination-summary" aria-live="polite">Mostrando 0 acciones</p><nav class="pagination" id="audit-pagination" aria-label="Paginación de auditoría"></nav></div></section>
+        </section>
+
+        <section class="records-panel" id="panel-contraste" role="tabpanel" aria-labelledby="tab-contraste" hidden>
+          <div class="records-intro"><div><h2>Contraste de inventario</h2><p>Compara las existencias al inicio y al final de un período, considerando únicamente productos con movimientos.</p></div><span class="section-counter" id="contrast-products-count">0 productos con movimiento</span></div>
+          <section class="records-filter-panel" aria-label="Parámetros del contraste"><form class="records-filter-grid contrast-filter-grid" id="contrast-filter-form">
+            <div class="filter-field"><label for="contrast-from">Fecha de inicio</label><input id="contrast-from" name="from" type="date" required></div>
+            <div class="filter-field"><label for="contrast-to">Fecha de fin</label><input id="contrast-to" name="to" type="date" required></div>
+            <div class="filter-field filter-field-product"><label for="contrast-product-filter">Producto (opcional)</label><select id="contrast-product-filter" name="product"><option value="all">Todos los productos con movimiento</option></select></div>
+            <div class="filter-actions"><button class="primary-button" type="submit">Generar contraste</button><button class="secondary-button" type="reset" id="contrast-clear">Restablecer</button></div>
+          </form><p class="filter-error" id="contrast-filter-error" role="alert" hidden></p></section>
+          <div class="contrast-explainer"><span class="contrast-explainer-icon" aria-hidden="true">↔</span><p><strong>¿Qué muestra este contraste?</strong> Solo incluye productos que registraron entradas, salidas o ajustes entre las fechas elegidas. La variación se explica con el detalle de operaciones de cada producto.</p></div>
+          <section class="records-summary contrast-summary" aria-label="Resumen del contraste"><article class="record-summary-card"><span class="record-summary-icon blue">▦</span><span><strong id="contrast-entry-total">0</strong><small>Unidades ingresadas</small></span></article><article class="record-summary-card"><span class="record-summary-icon red">↘</span><span><strong id="contrast-exit-total">0</strong><small>Unidades de salida</small></span></article><article class="record-summary-card"><span class="record-summary-icon violet">±</span><span><strong id="contrast-adjustment-total">0</strong><small>Ajuste neto</small></span></article><article class="record-summary-card"><span class="record-summary-icon gray">▤</span><span><strong id="contrast-operation-total">0</strong><small>Movimientos analizados</small></span></article></section>
+          <section class="records-table-panel" aria-labelledby="contrast-table-heading"><div class="table-panel-heading"><div><h3 id="contrast-table-heading">Comparación por producto</h3><p>Las cantidades se calculan a partir de los movimientos registrados en el intervalo.</p></div><span class="table-count" id="contrast-count">0 productos</span></div><div class="table-scroll"><table class="data-table records-table contrast-table"><caption class="visually-hidden">Comparación de stock inicial, entradas, salidas, ajustes y stock final de productos con movimientos.</caption><thead><tr><th scope="col">Producto</th><th scope="col">Stock inicial</th><th scope="col">Entradas</th><th scope="col">Salidas</th><th scope="col">Ajustes netos</th><th scope="col">Stock final</th><th scope="col">Variación</th><th scope="col">Detalle</th></tr></thead><tbody id="contrast-table-body"></tbody></table></div><div class="table-footer"><p id="contrast-result-summary" aria-live="polite">No se ha generado un contraste.</p><span class="table-footnote">Los productos sin movimientos en el período no se incluyen.</span></div></section>
+        </section>
+
+        <section class="records-panel" id="panel-reportes" role="tabpanel" aria-labelledby="tab-reportes" hidden>
+          <div class="records-intro"><div><h2>Reportes del inventario</h2><p>Consulta resúmenes y resultados del inventario directamente en pantalla.</p></div><span class="section-counter">Visualización en pantalla</span></div>
+          <section class="report-selector-panel" aria-label="Configuración del reporte"><form id="report-form" class="report-form">
+            <div class="filter-field report-type-field"><label for="report-type">Tipo de reporte</label><select id="report-type" name="report"><option value="overview">Resumen general del inventario</option><option value="top-moving">Productos con mayor movimiento</option><option value="low-stock">Alertas de stock</option><option value="movement-summary">Movimientos por período</option></select></div>
+            <div class="filter-field report-date-field" id="report-date-range"><label for="report-from">Fecha desde</label><input id="report-from" name="from" type="date"></div>
+            <div class="filter-field report-date-field" id="report-date-to-wrap"><label for="report-to">Fecha hasta</label><input id="report-to" name="to" type="date"></div>
+            <button class="primary-button report-generate-button" type="submit">Generar reporte</button>
+          </form><p class="filter-error" id="report-filter-error" role="alert" hidden></p></section>
+          <section class="report-output-panel" aria-labelledby="report-output-title"><div class="report-output-heading"><div><p class="eyebrow">RESULTADO DE CONSULTA</p><h3 id="report-output-title">Resumen general del inventario</h3><p id="report-output-description">Indicadores generales del catálogo y las existencias actuales.</p></div><span class="report-ready-pill"><i aria-hidden="true"></i> Vista previa</span></div><div id="report-output" aria-live="polite" aria-busy="false"></div></section>
+          <p class="demo-disclaimer">Los reportes se generan y visualizan dentro de esta pantalla. No se crean archivos Excel, PDF ni JSON en este prototipo.</p>
+        </section>
+
+        <p class="demo-disclaimer records-disclaimer">Datos ficticios para demostración. Los movimientos, acciones y resultados no representan operaciones reales.</p>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="records-dialog" id="audit-detail-dialog" aria-labelledby="audit-detail-title"><div class="records-dialog-content"><div class="dialog-heading"><div><p class="eyebrow">TRAZABILIDAD DE CAMBIOS</p><h2 id="audit-detail-title">Detalle de auditoría</h2><p id="audit-detail-description"></p></div><button class="dialog-close icon-button" type="button" data-close-dialog="audit-detail-dialog" aria-label="Cerrar detalle">×</button></div><div class="dialog-body" id="audit-detail-body"></div><div class="dialog-actions"><button class="secondary-button" type="button" data-close-dialog="audit-detail-dialog">Cerrar</button></div></div></dialog>
+  <dialog class="records-dialog" id="contrast-detail-dialog" aria-labelledby="contrast-detail-title"><div class="records-dialog-content"><div class="dialog-heading"><div><p class="eyebrow">DETALLE DEL PERÍODO</p><h2 id="contrast-detail-title">Movimientos del producto</h2><p id="contrast-detail-description"></p></div><button class="dialog-close icon-button" type="button" data-close-dialog="contrast-detail-dialog" aria-label="Cerrar detalle">×</button></div><div class="dialog-body" id="contrast-detail-body"></div><div class="dialog-actions"><button class="secondary-button" type="button" data-close-dialog="contrast-detail-dialog">Cerrar</button></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

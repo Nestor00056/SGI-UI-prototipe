@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="Gestión y consulta de proveedores del Sistema de Gestión de Inventario.">
+  <title>Proveedores | Sistema de Gestión de Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css">
+  <link rel="stylesheet" href="../css/proveedores.css">
+  <script defer src="../js/mock-data.js"></script>
+  <script defer src="../js/app-context.js"></script>
+  <script defer src="../js/proveedores.js"></script>
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="inicio.html" aria-label="SGI, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 3.5 43 14.25v19.5L24 44.5 5 33.75v-19.5L24 3.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m5.5 14.5 18.5 10 18.5-10M24 25v19" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>SGI<span>.</span></strong><small>Gestión de inventario</small></span>
+      </a>
+
+      <div class="sidebar-user">
+        <span class="user-avatar" id="sidebar-avatar" aria-hidden="true">U</span>
+        <span class="sidebar-user-copy"><strong id="sidebar-user-name">Usuario</strong><small id="sidebar-user-role">Rol</small></span>
+        <button class="profile-menu-toggle icon-button" id="profile-menu-toggle" type="button" aria-label="Abrir menú de cuenta" aria-expanded="false" aria-controls="profile-menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="profile-menu" id="profile-menu" hidden>
+          <p class="profile-menu-heading">Mi cuenta</p>
+          <a href="perfil.html">Ver perfil</a>
+          <a href="configuracion.html">Configuración</a>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Secciones del sistema">
+        <p class="nav-caption">MENÚ PRINCIPAL</p>
+        <a class="nav-link" href="inicio.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Inicio</span>
+        </a>
+        <a class="nav-link" href="productos.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Productos</span>
+        </a>
+        <a class="nav-link is-active" href="proveedores.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/><path d="M6 10h5M6 13h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Proveedores</span>
+        </a>
+        <a class="nav-link" href="registros.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Registros</span><span class="nav-chevron" aria-hidden="true">›</span>
+        </a>
+        <a class="nav-link admin-link" href="usuarios.html" data-admin-only hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM17 8h5M19.5 5.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Usuarios</span>
+        </a>
+
+        <p class="nav-caption nav-caption-secondary">PREFERENCIAS</p>
+        <a class="nav-link" href="perfil.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Perfil</span></a>
+        <a class="nav-link" href="configuracion.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" stroke="currentColor" stroke-width="1.8"/><path d="m19.4 13.5 1.1.9-1.2 2.1-1.4-.5a7.7 7.7 0 0 1-1.5.9l-.2 1.5h-2.4l-.4-1.4a7.7 7.7 0 0 1-1.8 0l-.7 1.3-2.2-.9.1-1.5a7.7 7.7 0 0 1-1.3-1.3l-1.5.1-.9-2.2 1.3-.7a7.7 7.7 0 0 1 0-1.8l-1.2-.8.9-2.2 1.5.1a7.7 7.7 0 0 1 1.3-1.3l-.1-1.5 2.2-.9.7 1.3a7.7 7.7 0 0 1 1.8 0l.8-1.2 2.2.9-.1 1.5 1.3 1.3 1.5-.1.9 2.2-1.3.7a7.7 7.7 0 0 1 0 1.8Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg><span>Configuración</span></a>
+        <button class="nav-link" type="button" data-coming-soon="Ayuda"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.1 1.1-1.9 1.4-1.9 3M12 17.5v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Ayuda</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-status"><span class="status-dot" aria-hidden="true"></span><span>Entorno de demostración</span></div>
+        <button class="nav-link logout-link" id="logout-button" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 17 15 12 10 7M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cerrar sesión</span></button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-brand"><span class="topbar-brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19" r="1.5" fill="currentColor"/><circle cx="18" cy="19" r="1.5" fill="currentColor"/></svg></span><span>Sistema de Gestión de Inventarios</span></div>
+        <div class="topbar-actions">
+          <div class="notification-wrap">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notificaciones" aria-expanded="false" aria-controls="notification-panel"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="notification-dot" aria-hidden="true"></span></button>
+            <section class="notification-panel" id="notification-panel" aria-labelledby="notification-heading" hidden><div class="popover-heading"><h2 id="notification-heading">Notificaciones</h2><span>Inventario</span></div><div class="notification-list" id="notification-list"></div></section>
+          </div>
+          <time class="current-date" id="current-date"></time>
+        </div>
+      </header>
+
+      <main class="main-content providers-content" id="contenido-principal" tabindex="-1">
+        <div class="page-heading providers-page-heading">
+          <div>
+            <p class="eyebrow">DIRECTORIO DE SUMINISTRO</p>
+            <h1>Proveedores</h1>
+            <p class="page-subtitle">Administra y consulta la información de contacto de tus proveedores.</p>
+          </div>
+          <button class="primary-button" id="new-provider-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Nuevo proveedor
+          </button>
+        </div>
+
+        <section class="providers-summary" aria-label="Resumen de proveedores">
+          <article class="summary-item"><span class="summary-icon summary-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 20V7l9-4 9 4v13H3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 20v-6h8v6M8 9h.01M12 9h.01M16 9h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span><strong id="summary-total">0</strong><small>Proveedores registrados</small></span></article>
+          <article class="summary-item"><span class="summary-icon summary-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/></svg></span><span><strong id="summary-active">0</strong><small>Proveedores activos</small></span></article>
+          <article class="summary-item"><span class="summary-icon summary-gray" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span><strong id="summary-inactive">0</strong><small>Proveedores inactivos</small></span></article>
+          <article class="summary-item"><span class="summary-icon summary-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span><strong id="summary-email">0</strong><small>Con correo registrado</small></span></article>
+        </section>
+
+        <section class="providers-filter-panel" aria-labelledby="provider-filter-heading">
+          <h2 class="visually-hidden" id="provider-filter-heading">Buscar y filtrar proveedores</h2>
+          <form id="provider-filter-form" class="provider-filters">
+            <div class="search-field"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><label class="visually-hidden" for="provider-search">Buscar proveedor</label><input id="provider-search" name="search" type="search" placeholder="Buscar por proveedor, contacto o correo..." autocomplete="off"></div>
+            <div class="select-field"><label class="visually-hidden" for="provider-status-filter">Filtrar por estado</label><select id="provider-status-filter" name="status"><option value="all">Todos los estados</option><option value="active">Activo</option><option value="inactive">Inactivo</option></select></div>
+            <button class="filter-button" type="submit"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Filtrar</button>
+            <button class="clear-filters-button" id="clear-provider-filters" type="button" hidden>Limpiar filtros</button>
+          </form>
+        </section>
+
+        <section class="providers-table-panel" aria-labelledby="providers-table-heading">
+          <div class="table-panel-heading"><div><h2 id="providers-table-heading">Listado de proveedores</h2><p>Consulta, revisa o modifica los datos de contacto registrados.</p></div><span class="table-count" id="table-count">0 registros</span></div>
+          <div class="table-scroll providers-table-scroll">
+            <table class="data-table providers-table">
+              <caption class="visually-hidden">Proveedores registrados con código, nombre, contacto, teléfono, correo, estado y acciones.</caption>
+              <thead><tr><th scope="col">Código</th><th scope="col">Proveedor</th><th scope="col">Persona de contacto</th><th scope="col">Teléfono</th><th scope="col">Correo electrónico</th><th scope="col">Estado</th><th scope="col" class="actions-heading">Acciones</th></tr></thead>
+              <tbody id="providers-table-body"></tbody>
+            </table>
+          </div>
+          <div class="table-footer"><p id="pagination-summary" aria-live="polite">Mostrando 0 proveedores</p><nav class="pagination" id="pagination" aria-label="Paginación de proveedores"></nav></div>
+        </section>
+        <p class="demo-disclaimer">Información ficticia para demostración. Los cambios se mantienen únicamente mientras esta vista permanezca abierta y se reinician al recargarla.</p>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="provider-dialog" id="provider-dialog" aria-labelledby="dialog-title">
+    <form id="provider-form" class="provider-dialog-form" novalidate>
+      <div class="dialog-heading">
+        <div><p class="eyebrow">DIRECTORIO DE PROVEEDORES</p><h2 id="dialog-title">Nuevo proveedor</h2><p id="dialog-description">Completa la información básica y los datos de contacto.</p></div>
+        <button class="dialog-close icon-button" id="dialog-close" type="button" aria-label="Cerrar ventana">×</button>
+      </div>
+      <div class="dialog-body">
+        <div class="form-grid">
+          <div class="form-field form-field-wide"><label for="provider-name">Nombre del proveedor <span aria-hidden="true">*</span></label><input id="provider-name" name="name" type="text" maxlength="120" autocomplete="organization" placeholder="Nombre o razón social" aria-describedby="provider-name-error" aria-invalid="false" required><small class="field-message" id="provider-name-error"></small></div>
+          <div class="form-field"><label for="provider-contact">Persona de contacto</label><input id="provider-contact" name="contact" type="text" maxlength="100" autocomplete="name" placeholder="Nombre de la persona responsable"></div>
+          <div class="form-field"><label for="provider-phone">Teléfono</label><input id="provider-phone" name="phone" type="tel" maxlength="25" autocomplete="tel" placeholder="Ej. 300 555 0101" aria-describedby="provider-phone-error" aria-invalid="false"><small class="field-message" id="provider-phone-error"></small></div>
+          <div class="form-field form-field-wide"><label for="provider-email">Correo electrónico</label><input id="provider-email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="contacto@empresa.example" aria-describedby="provider-email-error" aria-invalid="false"><small class="field-message" id="provider-email-error"></small></div>
+          <div class="form-field form-field-wide"><label for="provider-address">Dirección</label><textarea id="provider-address" name="address" rows="2" maxlength="220" autocomplete="street-address" placeholder="Ciudad, departamento o dirección"></textarea></div>
+          <div class="form-field"><label for="provider-status">Estado</label><select id="provider-status" name="status"><option value="active">Activo</option><option value="inactive">Inactivo</option></select></div>
+        </div>
+        <p class="dialog-form-feedback" id="dialog-feedback" role="alert" hidden></p>
+      </div>
+      <div class="dialog-actions"><button class="secondary-button" id="dialog-cancel" type="button">Cancelar</button><button class="primary-button" id="dialog-save" type="submit">Guardar proveedor</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="provider-dialog detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="provider-dialog-form">
+      <div class="dialog-heading"><div><p class="eyebrow">INFORMACIÓN DEL DIRECTORIO</p><h2 id="detail-title">Detalle del proveedor</h2><p>Consulta los datos registrados del proveedor.</p></div><button class="dialog-close icon-button" id="detail-close" type="button" aria-label="Cerrar ventana">×</button></div>
+      <div class="detail-grid" id="detail-content"></div>
+      <div class="dialog-actions"><button class="secondary-button" id="detail-dismiss" type="button">Cerrar</button></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

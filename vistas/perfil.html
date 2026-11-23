@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="Información de la cuenta del Sistema de Gestión de Inventario.">
+  <title>Perfil | Sistema de Gestión de Inventario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <script defer src="../js/mock-data.js"></script>
+  <script defer src="../js/app-context.js"></script>
+  <script defer src="../js/perfil.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="inicio.html" aria-label="SGI, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 3.5 43 14.25v19.5L24 44.5 5 33.75v-19.5L24 3.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="m5.5 14.5 18.5 10 18.5-10M24 25v19" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy"><strong>SGI<span>.</span></strong><small>Gestión de inventario</small></span>
+      </a>
+
+      <div class="sidebar-user">
+        <span class="user-avatar" id="sidebar-avatar" aria-hidden="true">U</span>
+        <span class="sidebar-user-copy">
+          <strong id="sidebar-user-name">Usuario</strong>
+          <small id="sidebar-user-role">Rol</small>
+        </span>
+        <button class="profile-menu-toggle icon-button" id="profile-menu-toggle" type="button" aria-label="Abrir menú de cuenta" aria-expanded="false" aria-controls="profile-menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="profile-menu" id="profile-menu" hidden>
+          <p class="profile-menu-heading">Mi cuenta</p>
+          <a href="perfil.html" aria-current="page">Ver perfil</a>
+          <a href="configuracion.html">Configuración</a>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Secciones del sistema">
+        <p class="nav-caption">MENÚ PRINCIPAL</p>
+        <a class="nav-link" href="inicio.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Inicio</span>
+        </a>
+        <a class="nav-link" href="productos.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 9 4.8v9L12 21.2l-9-4.6v-9l9-4.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.5 7.8 8.5 4.7 8.5-4.7M12 12.5v8.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Productos</span>
+        </a>
+        <a class="nav-link" href="proveedores.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="18" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/></svg><span>Proveedores</span>
+        </a>
+        <a class="nav-link" href="registros.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Registros</span><span class="nav-chevron" aria-hidden="true">›</span>
+        </a>
+        <a class="nav-link admin-link" href="usuarios.html" data-admin-only hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM17 8h5M19.5 5.5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Usuarios</span>
+        </a>
+
+        <p class="nav-caption nav-caption-secondary">PREFERENCIAS</p>
+        <a class="nav-link is-active" href="perfil.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Perfil</span>
+        </a>
+        <a class="nav-link" href="configuracion.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" stroke="currentColor" stroke-width="1.8"/><path d="m19.4 13.5 1.1.9-1.2 2.1-1.4-.5a7.7 7.7 0 0 1-1.5.9l-.2 1.5h-2.4l-.4-1.4a7.7 7.7 0 0 1-1.8 0l-.7 1.3-2.2-.9.1-1.5a7.7 7.7 0 0 1-1.3-1.3l-1.5.1-.9-2.2 1.3-.7a7.7 7.7 0 0 1 0-1.8l-1.2-.8.9-2.2 1.5.1a7.7 7.7 0 0 1 1.3-1.3l-.1-1.5 2.2-.9.7 1.3a7.7 7.7 0 0 1 1.8 0l.8-1.2 2.2.9-.1 1.5 1.3 1.3 1.5-.1.9 2.2-1.3.7a7.7 7.7 0 0 1 0 1.8Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/></svg><span>Configuración</span>
+        </a>
+        <button class="nav-link" type="button" data-coming-soon="Ayuda">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.1 1.1-1.9 1.4-1.9 3M12 17.5v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Ayuda</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-status"><span class="status-dot" aria-hidden="true"></span><span>Entorno de demostración</span></div>
+        <button class="nav-link logout-link" id="logout-button" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 17 15 12 10 7M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cerrar sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-brand">
+          <span class="topbar-brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19" r="1.5" fill="currentColor"/><circle cx="18" cy="19" r="1.5" fill="currentColor"/></svg>
+          </span>
+          <span>Sistema de Gestión de Inventarios</span>
+        </div>
+        <div class="topbar-actions">
+          <div class="notification-wrap">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notificaciones" aria-expanded="false" aria-controls="notification-panel">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+            <section class="notification-panel" id="notification-panel" aria-labelledby="notification-heading" hidden>
+              <div class="popover-heading"><h2 id="notification-heading">Notificaciones</h2><span>Inventario</span></div>
+              <div class="notification-list" id="notification-list"></div>
+              <a class="popover-footer-action" href="registros.html?tab=reportes&amp;report=low-stock">Consultar alertas del inventario</a>
+            </section>
+          </div>
+          <time class="current-date" id="current-date"></time>
+        </div>
+      </header>
+
+      <main class="main-content profile-main" id="contenido-principal" tabindex="-1">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">CUENTA Y SEGURIDAD</p>
+            <h1>Perfil</h1>
+            <p class="page-subtitle">Consulta y actualiza la información de tu cuenta.</p>
+          </div>
+        </div>
+
+        <section class="profile-layout" aria-label="Información de la cuenta">
+          <article class="profile-summary-card">
+            <span class="profile-avatar-large" id="profile-avatar" aria-hidden="true">U</span>
+            <div class="profile-summary-copy">
+              <p class="card-kicker">CUENTA ACTIVA</p>
+              <h2 id="profile-display-name">Usuario</h2>
+              <p id="profile-display-email">correo@sgi.demo</p>
+              <span class="profile-role-label" id="profile-display-role">Empleado</span>
+            </div>
+            <span class="profile-status-pill is-active" id="profile-status-pill">Activo</span>
+          </article>
+
+          <article class="profile-card" aria-labelledby="profile-card-title">
+            <div class="profile-card-heading">
+              <div>
+                <p class="card-kicker">DATOS DE LA CUENTA</p>
+                <h2 id="profile-card-title">Información personal</h2>
+                <p>Los cambios se reflejan en el menú de cuenta y en las demás vistas del prototipo.</p>
+              </div>
+            </div>
+
+            <form id="profile-form" novalidate>
+              <div class="profile-form-grid">
+                <div class="form-field">
+                  <label for="profile-name">Nombre completo</label>
+                  <input id="profile-name" name="name" type="text" maxlength="90" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="profile-email">Correo electrónico</label>
+                  <input id="profile-email" name="email" type="email" maxlength="120" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                  <label for="profile-role">Rol asignado</label>
+                  <input id="profile-role" name="role" type="text" readonly aria-readonly="true">
+                </div>
+                <div class="form-field">
+                  <label for="profile-status">Estado de la cuenta</label>
+                  <input id="profile-status" name="status" type="text" readonly aria-readonly="true">
+                </div>
+              </div>
+
+              <p class="profile-note">Puedes modificar tu nombre y correo electrónico. El rol y el estado son administrados desde la sección Usuarios.</p>
+
+              <div class="profile-actions">
+                <button class="secondary-button" id="profile-cancel" type="button">Cancelar</button>
+                <button class="primary-button" id="profile-save" type="submit">Guardar cambios</button>
+              </div>
+              <p class="profile-feedback" id="profile-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>
